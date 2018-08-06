@@ -1,0 +1,59 @@
+<!DOCTYPE = html>
+<html>
+    <body>
+        <p>This is some filler text</p>
+
+    <!-- creates a function that generates a random play, so the results will be either 
+        rock, paper, or scissors, randomly -->
+        <script>
+
+function computerPlay () {
+    var min = 1, max = 3;
+    var x = Math.floor(Math.random()*(max-min+1)+ min);
+    var chosen
+    if (x == 1){
+        chosen = 'rock';
+    } else if (x == 2) {
+        chosen = 'paper';
+    } else {
+        chosen = 'scissors';
+    }
+    return chosen;
+}
+
+function playerSelection (userInput, compInput) {
+    var userInput = prompt('Rock, paper, or scissors?');
+    var compInput = computerPlay();
+
+    if ((userInput == 'rock') && (compInput == 'paper')) {
+        console.log('You Lose! Paper beats rock!');
+    } else if ((userInput == 'paper') && (compInput == 'rock')) {
+        console.log('Woot, you win! Paper beats rock!');
+    } else if ((userInput == 'paper') && (compInput == 'scissors')) {
+        console.log('You lose! Scissors cut paper!');
+    } else if ((userInput == 'scissors') && (compInput == 'paper')) {
+        console.log('You win! Scissors cut paper!');
+    } else if ((userInput == 'scissors') && (compInput == 'rock')) {
+        console.log('You lose! Rock smash scissors!');
+    } else if ((userInput == 'rock') && (compInput == 'scissors')) {
+        console.log('You win! Rock Smash Scissors');
+    } else {
+        console.log('You chose the same, try again');
+    } 
+    
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
