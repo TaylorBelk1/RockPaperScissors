@@ -22,7 +22,8 @@ function computerPlay () {
 }
 
 function playerSelection (userInput, compInput) {
-    var userInput = prompt('Rock, paper, or scissors?');
+    var takeUserInput = prompt('Rock, paper, or scissors?');
+    var userInput = takeUserInput.toLowerCase();
     var compInput = computerPlay();
 
     if ((userInput == 'rock') && (compInput == 'paper')) {
