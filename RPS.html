@@ -3,9 +3,11 @@
     <body>
         <p>This is some filler text</p>
 
-    <!-- creates a function that generates a random play, so the results will be either 
-        rock, paper, or scissors, randomly -->
         <script>
+
+
+    //creates a function that generates a random play, so the results will be either rock, paper, or scissors, randomly
+
 
 function computerPlay () {
     var min = 1, max = 3;
@@ -21,40 +23,62 @@ function computerPlay () {
     return chosen;
 }
 
-function playerSelection (userInput, compInput) {
-    var takeUserInput = prompt('Rock, paper, or scissors?');
+
+//this function gets user input
+
+function playerChoice() {
+    var takeUserInput = prompt("Choose Rock, Paper, or Scissors");
     var userInput = takeUserInput.toLowerCase();
+    return userInput;
+}
+
+//This code creates a one round game that takes two inputs compInput using the computerPlay function and returning a win or lose statement
+
+function gameOneRound (userInput, compInput) {
+    var userInput = playerChoice();
     var compInput = computerPlay();
 
     if ((userInput == 'rock') && (compInput == 'paper')) {
-        console.log('You Lose! Paper beats rock!');
+        return 'You Lose! Paper beats rock!';
     } else if ((userInput == 'paper') && (compInput == 'rock')) {
-        console.log('Woot, you win! Paper beats rock!');
+        return 'Woot, you win! Paper beats rock!';
     } else if ((userInput == 'paper') && (compInput == 'scissors')) {
-        console.log('You lose! Scissors cut paper!');
+        return 'You lose! Scissors cut paper!';
     } else if ((userInput == 'scissors') && (compInput == 'paper')) {
-        console.log('You win! Scissors cut paper!');
+        return 'You win! Scissors cut paper!';
     } else if ((userInput == 'scissors') && (compInput == 'rock')) {
-        console.log('You lose! Rock smash scissors!');
+        return 'You lose! Rock smash scissors!';
     } else if ((userInput == 'rock') && (compInput == 'scissors')) {
-        console.log('You win! Rock Smash Scissors');
+        return 'You win! Rock Smash Scissors';
     } else {
-        console.log('You chose the same, try again');
+        return 'You chose the same, try again';
     } 
     
 }
 
 
 
-</script>
+// this is a 5 round game using parts of the above two functions
 
+function game (user, comp) {
+    var pScore = 0;
+    var cScore = 0;
+  
+  for (let round = 0; round < 5; round++) {
+      var playerInput = playerChoice();
+      var compInput = computerPlay();
+      var result = gameOneRound(playerInput, compInput);
+      console.log(result);
+  }
+  if (pScore > cScore ) {
+            console.log("Player wins with " + pScore.toString());
+        } else if (pScore < cScore){
+            console.log("Awe too bad, computer beat you with a total of " + cScore.toString());
+        } else {
+            console.log('You tied with the computer!');
+        }  
+}
 
-
-
-
-
-
-
-
+        </script>
     </body>
 </html>
