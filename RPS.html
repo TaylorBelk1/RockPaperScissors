@@ -35,9 +35,7 @@ function playerChoice() {
 //This code creates a one round game that takes two inputs compInput using the computerPlay function and returning a win or lose statement
 
 function gameOneRound (userInput, compInput) {
-    var userInput = playerChoice();
-    var compInput = computerPlay();
-
+   
     if ((userInput == 'rock') && (compInput == 'paper')) {
         return 'You Lose! Paper beats rock!';
     } else if ((userInput == 'paper') && (compInput == 'rock')) {
@@ -65,10 +63,8 @@ function game (user, comp) {
     var cScore = 0;
   
   for (let round = 0; round < 5; round++) {
-      var playerInput = playerChoice();
-      var compInput = computerPlay();
-      var result = gameOneRound(playerInput, compInput);
-      console.log(result);
+      var result = gameOneRound(playerChoice(), computerPlay());
+      alert(result);
   }
   if (pScore > cScore ) {
             console.log("Player wins with " + pScore.toString());
